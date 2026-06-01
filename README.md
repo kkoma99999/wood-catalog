@@ -1,43 +1,29 @@
-# Astro Starter Kit: Minimal
+# wood-catalog
+
+Bilingual (Arabic / English) B2B catalog for a hardwood & timber supplier in Saudi Arabia. A static site that showcases wood species and routes every inquiry to WhatsApp — no cart, no forms, no backend.
+
+## Stack
+
+- **Astro 6** — 100% static output
+- **Tailwind CSS v4**
+- **TypeScript** (strict)
+- **MDX** content collection for wood species (`src/content/woods/`)
+- Deploys to **Cloudflare Pages**
+
+## Features
+
+- `/ar` (default, RTL) and `/en` (LTR) locales via Astro i18n
+- Product catalog with per-species detail pages
+- WhatsApp-only inquiry flow with pre-filled, localized messages — the single conversion point
+- Mobile-first: bottom tab bar and a sticky inquiry CTA
+
+## Develop
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev       # dev server
+npm run build     # static build → ./dist
+npm run preview   # preview the production build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See `CLAUDE.md` for the full project conventions (i18n rules, RTL, brand palette, WhatsApp message format).
