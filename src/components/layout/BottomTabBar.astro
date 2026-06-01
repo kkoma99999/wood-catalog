@@ -1,0 +1,55 @@
+---
+import { dict, localePath, type Locale } from '../../i18n/utils';
+import { buildWhatsAppUrl } from '../../lib/whatsapp';
+import WhatsAppIcon from '../icons/WhatsAppIcon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = dict(locale);
+const waUrl = buildWhatsAppUrl({ locale, currentPath: Astro.url.pathname });
+
+// Each tab has a distinct icon, so the links stay explicit; only the shared
+// layout classes are hoisted (color differs for the WhatsApp tab).
+const tabClass = 'flex flex-col items-center justify-center gap-0.5 text-xs min-h-11';
+---
+<nav
+  class="md:hidden fixed bottom-0 inset-x-0 z-30 bg-cream-50 border-t border-cream-200 grid grid-cols-4 h-16"
+  aria-label="Mobile bottom navigation"
+>
+  <a href={localePath('/', locale)} class:list={[tabClass, 'text-wood-800 hover:text-wood-900']}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" aria-hidden="true">
+      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
+    </svg>
+    <span>{d.bottomTab.home}</span>
+  </a>
+  <a href={localePath('/products', locale)} class:list={[tabClass, 'text-wood-800 hover:text-wood-900']}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" aria-hidden="true">
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+    </svg>
+    <span>{d.bottomTab.products}</span>
+  </a>
+  <a href={localePath('/about', locale)} class:list={[tabClass, 'text-wood-800 hover:text-wood-900']}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="16" x2="12" y2="12" />
+      <line x1="12" y1="8" x2="12.01" y2="8" />
+    </svg>
+    <span>{d.bottomTab.about}</span>
+  </a>
+  <a
+    href={waUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    data-wa-location="bottom-tab"
+    class:list={[tabClass, 'bg-wa-green text-white font-medium']}
+  >
+    <WhatsAppIcon class="w-5 h-5" />
+    <span>{d.bottomTab.whatsapp}</span>
+  </a>
+</nav>

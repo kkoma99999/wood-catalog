@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+/* Fonts are loaded via <link> tags in BaseLayout.astro for faster preconnect
+   and to keep CSS lean (no extra blocking @import round-trip). */
+
+@theme {
+  --color-cream-50: #FAF6EE;
+  --color-cream-100: #F2E8D3;
+  --color-cream-200: #EFE3CC;
+  --color-cream-light: #F5E9D3;
+
+  --color-wood-900: #2A1A0E;
+  --color-wood-800: #3D2817;
+  --color-wood-700: #5C3317;
+  --color-wood-500: #8A7660;
+
+  --color-wa-green: #25D366;
+  --color-wa-green-dark: #128C7E;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+
+  --tracking-section: 0.08em;
+}
+
+/* Locale-aware body typography per CLAUDE.md (1.6 en, 1.75 ar). */
+html[dir="ltr"] body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+html[dir="rtl"] body {
+  font-family: var(--font-arabic);
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+/* Ensure the HTML [hidden] attribute beats any Tailwind display utility
+   (used by the IntersectionObserver-driven sticky CTA on product pages). */
+[hidden] { display: none !important; }
+
+@utility section-label {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-section);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+@utility pill-in-stock {
+  background-color: #E6F0D8;
+  color: #2E5511;
+}
+@utility pill-by-order {
+  background-color: #F5E2BD;
+  color: #5C3D0A;
+}
+@utility pill-out-of-stock {
+  background-color: #F5C1C1;
+  color: #791F1F;
+}

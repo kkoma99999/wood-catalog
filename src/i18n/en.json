@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "header": {
+    "openMenu": "Open menu"
+  },
+  "langSwitcher": {
+    "switchTo": "العربية",
+    "ariaLabel": "Switch language"
+  },
+  "footer": {
+    "tagline": "Hardwood suppliers to contractors and joinery shops across KSA and the Gulf.",
+    "citiesLabel": "Serving",
+    "cities": ["Riyadh", "Jeddah", "Dammam", "Makkah", "Madinah"],
+    "crLabel": "Commercial Registration",
+    "copyright": "© 2026 Neem Wood. All rights reserved."
+  },
+  "whatsapp": {
+    "inquireCta": "Inquire on WhatsApp",
+    "iconAriaLabel": "Contact us on WhatsApp",
+    "stickyCta": "Inquire on WhatsApp",
+    "productMessage": "Hi, I'd like to inquire about:\n*{name}*\nPage: {url}\n",
+    "generalMessage": "Hi, I'd like to inquire about your wood products."
+  },
+  "wood": {
+    "inStock": "In stock",
+    "byOrder": "By order"
+  },
+  "home": {
+    "hello": "Hello",
+    "hero": {
+      "pill": "Hardwood suppliers in Saudi Arabia",
+      "subtitle": "Specialist suppliers of all types and sizes of wood.",
+      "inquireCta": "Start a chat",
+      "browseCta": "Browse species"
+    },
+    "species": {
+      "label": "Available species"
+    },
+    "darkCta": {
+      "label": "Start your project",
+      "title": "Send project details over WhatsApp",
+      "subtitle": "Share dimensions, quantities, or even a reference photo — we'll get back to you the same day.",
+      "cta": "Open WhatsApp"
+    }
+  },
+  "bottomTab": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "whatsapp": "WhatsApp"
+  },
+  "products": {
+    "list": {
+      "label": "Catalog",
+      "title": "Multiple hardwood species",
+      "subtitle": "Every species we supply, with full technical specs and direct WhatsApp inquiry. No prices online — message us and we'll quote for your project.",
+      "metaTitle": "Hardwood Species Catalog",
+      "metaDescription": "{species} — premium hardwoods supplied across Saudi Arabia. Browse specs and inquire on WhatsApp."
+    },
+    "detail": {
+      "specsTitle": "Specifications",
+      "atGlanceLabel": "At a glance",
+      "moistureLabel": "Moisture",
+      "moistureValue": "8–12%",
+      "usesTitle": "Common uses",
+      "similarTitle": "Similar species",
+      "productCta": {
+        "label": "Need this for your project?",
+        "title": "Get a quote for your build",
+        "subtitle": "Send dimensions and quantities — we'll respond same day."
+      },
+      "jankaLabel": "Janka hardness",
+      "densityLabel": "Density",
+      "thicknessLabel": "Thickness",
+      "widthLabel": "Width",
+      "lengthLabel": "Length",
+      "gradesLabel": "Grades",
+      "applicationsLabel": "Applications",
+      "certificationsLabel": "Certifications",
+      "colorFamilyLabel": "Color family",
+      "moqLabel": "Minimum order",
+      "leadTimeLabel": "Lead time",
+      "stockLabel": "Availability",
+      "unitMm": "mm",
+      "unitLbf": "lbf",
+      "unitKgM3": "kg/m³",
+      "unitDays": "days",
+      "unitBoardFeet": "board feet",
+      "certificationsNone": "—",
+      "applications": {
+        "furniture": "Furniture",
+        "flooring": "Flooring",
+        "joinery": "Joinery",
+        "marine": "Marine",
+        "decking": "Decking",
+        "decorative": "Decorative",
+        "doors": "Doors",
+        "stairs": "Stairs"
+      },
+      "colorFamilies": {
+        "light": "Light",
+        "golden": "Golden",
+        "reddish": "Reddish",
+        "dark": "Dark",
+        "exotic": "Exotic"
+      }
+    }
+  }
+}

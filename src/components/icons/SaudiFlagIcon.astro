@@ -1,0 +1,21 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: cls = 'w-5 h-3.5' } = Astro.props;
+---
+<svg
+  viewBox="0 0 24 16"
+  xmlns="http://www.w3.org/2000/svg"
+  class:list={[cls, 'rounded-sm overflow-hidden']}
+  aria-hidden="true"
+>
+  <rect width="24" height="16" fill="#006C35" />
+  <g fill="#FFFFFF">
+    <!-- stylised shahada band (text is unreadable at this size, shape suggests calligraphy) -->
+    <rect x="3.5" y="5.5" width="17" height="1.4" rx="0.5" />
+    <!-- sword: blade + pommel -->
+    <rect x="4" y="10" width="13" height="1" rx="0.3" />
+    <circle cx="17.4" cy="10.5" r="1" />
+  </g>
+</svg>

@@ -1,0 +1,73 @@
+---
+import type { Application } from '../../content.config';
+
+interface Props {
+  application: Application;
+  class?: string;
+}
+const { application, class: cls = 'w-5 h-5' } = Astro.props;
+---
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={cls}
+  aria-hidden="true"
+>
+  {application === 'furniture' && (
+    <g>
+      <path d="M5 11a2 2 0 0 1 2 2v3h10v-3a2 2 0 1 1 4 0v6H3v-6a2 2 0 0 1 2-2z" />
+      <path d="M7 16v-5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v5" />
+    </g>
+  )}
+  {application === 'flooring' && (
+    <g>
+      <rect x="3" y="5" width="18" height="3" rx="1" />
+      <rect x="3" y="10" width="18" height="3" rx="1" />
+      <rect x="3" y="15" width="18" height="3" rx="1" />
+    </g>
+  )}
+  {application === 'joinery' && (
+    <g>
+      <path d="M13 2 10 5l6 6 3-3z" />
+      <path d="M15 7 4 18a2 2 0 0 0 0 3 2 2 0 0 0 3 0L18 10" />
+    </g>
+  )}
+  {application === 'marine' && (
+    <g>
+      <circle cx="12" cy="5" r="2" />
+      <path d="M12 7v14" />
+      <path d="M5 12a7 7 0 0 0 14 0" />
+      <path d="M9 10H6" />
+      <path d="M18 10h-3" />
+    </g>
+  )}
+  {application === 'decking' && (
+    <g>
+      <path d="M3 6h18" />
+      <path d="M3 12h18" />
+      <path d="M3 18h18" />
+      <path d="M8 6v12" />
+      <path d="M16 6v12" />
+    </g>
+  )}
+  {application === 'decorative' && (
+    <g>
+      <path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" />
+    </g>
+  )}
+  {application === 'doors' && (
+    <g>
+      <rect x="6" y="3" width="12" height="18" rx="1" />
+      <path d="M15 12h.01" />
+    </g>
+  )}
+  {application === 'stairs' && (
+    <g>
+      <path d="M3 21h4v-4h4v-4h4v-4h6" />
+    </g>
+  )}
+</svg>

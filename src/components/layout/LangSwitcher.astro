@@ -1,0 +1,27 @@
+---
+import { dict, switchLocalePath, type Locale } from '../../i18n/utils';
+import SaudiFlagIcon from '../icons/SaudiFlagIcon.astro';
+import UsFlagIcon from '../icons/UsFlagIcon.astro';
+
+interface Props {
+  locale: Locale;
+  class?: string;
+}
+
+const { locale, class: extraClass = '' } = Astro.props;
+const d = dict(locale);
+const target: Locale = locale === 'ar' ? 'en' : 'ar';
+const href = switchLocalePath(Astro.url.pathname, target);
+---
+<a
+  href={href}
+  hreflang={target}
+  aria-label={d.langSwitcher.ariaLabel}
+  class:list={[
+    'inline-flex items-center justify-center gap-2 h-11 px-3 rounded-full text-sm text-wood-800 hover:bg-cream-200 transition-colors',
+    extraClass,
+  ]}
+>
+  {target === 'ar' ? <SaudiFlagIcon /> : <UsFlagIcon />}
+  <span>{d.langSwitcher.switchTo}</span>
+</a>

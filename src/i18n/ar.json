@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "about": "من نحن",
+    "contact": "تواصل"
+  },
+  "header": {
+    "openMenu": "فتح القائمة"
+  },
+  "langSwitcher": {
+    "switchTo": "English",
+    "ariaLabel": "تبديل اللغة"
+  },
+  "footer": {
+    "tagline": "موردون للأخشاب الصلبة للمقاولين ومشاغل النجارة في المملكة والخليج.",
+    "citiesLabel": "نخدم",
+    "cities": ["الرياض", "جدة", "الدمام", "مكة المكرمة", "المدينة المنورة"],
+    "crLabel": "سجل تجاري",
+    "copyright": "© 2026 نيم للاخشاب. جميع الحقوق محفوظة."
+  },
+  "whatsapp": {
+    "inquireCta": "استفسر عبر واتساب",
+    "iconAriaLabel": "تواصل عبر واتساب",
+    "stickyCta": "استفسر عبر واتساب",
+    "productMessage": "السلام عليكم،\nأرغب بالاستفسار عن:\n*{name}*\nالرابط: {url}\n",
+    "generalMessage": "السلام عليكم، أرغب بالاستفسار عن منتجاتكم من الأخشاب."
+  },
+  "wood": {
+    "inStock": "متوفر",
+    "byOrder": "حسب الطلب"
+  },
+  "home": {
+    "hello": "مرحبا",
+    "hero": {
+      "pill": "موردون للأخشاب الصلبة في المملكة",
+      "subtitle": "موردون متخصصون في الأخشاب بمختلف أنواعها ومقاساتها",
+      "inquireCta": "ابدأ المحادثة",
+      "browseCta": "استعرض الأنواع"
+    },
+    "species": {
+      "label": "الأنواع المتوفرة"
+    },
+    "darkCta": {
+      "label": "ابدأ مشروعك",
+      "title": "أرسل لنا تفاصيل مشروعك على واتساب",
+      "subtitle": "أرفق المقاسات أو الكميات أو حتى صورة المرجع — نرد عليك في نفس اليوم.",
+      "cta": "افتح واتساب"
+    }
+  },
+  "bottomTab": {
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "about": "من نحن",
+    "whatsapp": "واتساب"
+  },
+  "products": {
+    "list": {
+      "label": "الكتالوج",
+      "title": "أنواع متعددة من الأخشاب الصلبة",
+      "subtitle": "كل الأنواع التي نوردها بمواصفاتها الفنية الكاملة. لا أسعار عبر الموقع — راسلنا على واتساب نرد عليك بسعر مشروعك.",
+      "metaTitle": "كتالوج أنواع الأخشاب الصلبة",
+      "metaDescription": "{species} — أخشاب صلبة فاخرة لمشاريعك في المملكة. استعرض المواصفات واستفسر عبر واتساب."
+    },
+    "detail": {
+      "specsTitle": "المواصفات",
+      "atGlanceLabel": "في لمحة",
+      "moistureLabel": "الرطوبة",
+      "moistureValue": "8–12%",
+      "usesTitle": "الاستخدامات الشائعة",
+      "similarTitle": "أنواع مشابهة",
+      "productCta": {
+        "label": "تحتاجه لمشروعك؟",
+        "title": "احصل على عرض سعر لمشروعك",
+        "subtitle": "أرسل المقاسات والكميات — نرد عليك في نفس اليوم."
+      },
+      "jankaLabel": "صلابة جانكا",
+      "densityLabel": "الكثافة",
+      "thicknessLabel": "السماكة",
+      "widthLabel": "العرض",
+      "lengthLabel": "الطول",
+      "gradesLabel": "الدرجات",
+      "applicationsLabel": "الاستخدامات",
+      "certificationsLabel": "الشهادات",
+      "colorFamilyLabel": "اللون",
+      "moqLabel": "الحد الأدنى للطلب",
+      "leadTimeLabel": "مدة التوريد",
+      "stockLabel": "التوفر",
+      "unitMm": "mm",
+      "unitLbf": "lbf",
+      "unitKgM3": "kg/m³",
+      "unitDays": "أيام",
+      "unitBoardFeet": "قدم لوحي",
+      "certificationsNone": "—",
+      "applications": {
+        "furniture": "أثاث",
+        "flooring": "أرضيات",
+        "joinery": "نجارة",
+        "marine": "بحري",
+        "decking": "أسطح خارجية",
+        "decorative": "زخرفي",
+        "doors": "أبواب",
+        "stairs": "درج"
+      },
+      "colorFamilies": {
+        "light": "فاتح",
+        "golden": "ذهبي",
+        "reddish": "أحمر",
+        "dark": "داكن",
+        "exotic": "نادر"
+      }
+    }
+  }
+}

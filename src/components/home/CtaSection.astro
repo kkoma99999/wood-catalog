@@ -1,0 +1,25 @@
+---
+import { dict, type Locale } from '../../i18n/utils';
+import WhatsAppButton from '../WhatsAppButton.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = dict(locale);
+---
+<section class="bg-wood-700 text-cream-light">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 py-14 md:py-24 text-center">
+    <p class="section-label text-cream-light/70">{d.home.darkCta.label}</p>
+    <h2 class="mt-3 text-3xl md:text-5xl max-w-3xl mx-auto leading-tight">{d.home.darkCta.title}</h2>
+    <p class="mt-4 text-cream-light/80 max-w-2xl mx-auto">{d.home.darkCta.subtitle}</p>
+    <div class="mt-8 flex justify-center">
+      <WhatsAppButton
+        variant="primary"
+        locale={locale}
+        label={d.home.darkCta.cta}
+        location="dark-cta"
+      />
+    </div>
+  </div>
+</section>

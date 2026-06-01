@@ -1,0 +1,64 @@
+---
+import { dict, localePath, pickName, type Locale } from '../../i18n/utils';
+import { siteConfig } from '../../config/site';
+import WhatsAppButton from '../WhatsAppButton.astro';
+import LangSwitcher from './LangSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = dict(locale);
+const brand = pickName(siteConfig.brand, locale);
+
+const navItems = [
+  { href: localePath('/', locale), label: d.nav.home },
+  { href: localePath('/products', locale), label: d.nav.products },
+  { href: localePath('/about', locale), label: d.nav.about },
+  { href: localePath('/contact', locale), label: d.nav.contact },
+];
+---
+<header class="sticky top-0 z-30 bg-cream-50/90 backdrop-blur border-b border-cream-200">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center gap-3">
+    <details class="md:hidden relative">
+      <summary
+        class="list-none w-11 h-11 inline-flex items-center justify-center rounded-full hover:bg-cream-200 cursor-pointer"
+        aria-label={d.header.openMenu}
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-wood-800" aria-hidden="true">
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="18" x2="20" y2="18" />
+        </svg>
+      </summary>
+      <nav class="absolute start-0 mt-2 min-w-44 bg-cream-50 border border-cream-200 rounded-xl py-2">
+        {navItems.map(({ href, label }) => (
+          <a href={href} class="block px-4 py-2 text-wood-800 hover:bg-cream-100">
+            {label}
+          </a>
+        ))}
+        <div class="border-t border-cream-200 my-1"></div>
+        <div class="px-2">
+          <LangSwitcher locale={locale} class="w-full justify-start" />
+        </div>
+      </nav>
+    </details>
+
+    <a href={localePath('/', locale)} class="font-medium text-wood-900 text-lg me-auto">
+      {brand}
+    </a>
+
+    <nav class="hidden md:flex items-center gap-1 me-auto">
+      {navItems.map(({ href, label }) => (
+        <a href={href} class="px-3 py-2 text-wood-800 hover:text-wood-900 rounded-full hover:bg-cream-100">
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden md:block">
+      <LangSwitcher locale={locale} />
+    </div>
+    <WhatsAppButton variant="icon" locale={locale} location="header" />
+  </div>
+</header>

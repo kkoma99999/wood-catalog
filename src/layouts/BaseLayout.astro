@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import {
+  defaultLocale,
+  getDir,
+  getLocale,
+  locales,
+  pickName,
+  switchLocalePath,
+  type Locale,
+} from '../i18n/utils';
+import { siteConfig } from '../config/site';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import BottomTabBar from '../components/layout/BottomTabBar.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  locale?: Locale;
+  /** Set false on pages that supply their own header/footer markup. */
+  showChrome?: boolean;
+  ogImage?: string;
+}
+
+const { title, description, locale: localeProp, showChrome = true, ogImage } = Astro.props;
+const locale: Locale = localeProp ?? getLocale(Astro.url);
+const dir = getDir(locale);
+const brandName = pickName(siteConfig.brand, locale);
+// Pages provide the unique part of the title; we append the brand once here.
+const fullTitle = title ? `${title} — ${brandName}` : brandName;
+
+const site = Astro.site ?? new URL(siteConfig.domain);
+const canonical = new URL(Astro.url.pathname, site).href;
+const alternates = locales.map((l) => ({
+  hreflang: l,
+  href: new URL(switchLocalePath(Astro.url.pathname, l), site).href,
+}));
+const xDefaultHref = new URL(switchLocalePath(Astro.url.pathname, defaultLocale), site).href;
+const ogLocale = locale === 'ar' ? 'ar_SA' : 'en_US';
+---
+<!doctype html>
+<html lang={locale} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500&family=Inter:wght@400;500&display=swap"
+    />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    {alternates.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={xDefaultHref} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:site_name" content={brandName} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+  </head>
+  <body class="bg-cream-50 text-wood-800 min-h-screen flex flex-col">
+    {showChrome && (
+      <slot name="header">
+        <Header locale={locale} />
+      </slot>
+    )}
+    <main class="flex-1 pb-20 md:pb-0">
+      <slot />
+    </main>
+    {showChrome && (
+      <slot name="footer">
+        <Footer locale={locale} />
+      </slot>
+    )}
+    {showChrome && <BottomTabBar locale={locale} />}
+
+    <script is:inline>
+      // Guarded analytics stub: emits the existing WhatsApp click event if a
+      // Plausible loader is on the page; otherwise it is a silent no-op so the
+      // data-wa-* attributes stay future-proof without shipping a dependency.
+      document.addEventListener('click', (e) => {
+        const a = e.target && e.target.closest && e.target.closest('a[data-wa-product], a[data-wa-location]');
+        if (!a) return;
+        if (typeof window.plausible === 'function') {
+          window.plausible('WhatsApp Click', {
+            props: {
+              product: a.dataset.waProduct || null,
+              locale: document.documentElement.lang,
+              location: a.dataset.waLocation || 'unknown',
+            },
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

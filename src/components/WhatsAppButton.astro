@@ -1,0 +1,93 @@
+---
+import { buildWhatsAppUrl } from '../lib/whatsapp';
+import { dict, type Locale } from '../i18n/utils';
+import WhatsAppIcon from './icons/WhatsAppIcon.astro';
+
+type Variant = 'primary' | 'sticky' | 'icon';
+
+interface Props {
+  variant: Variant;
+  locale: Locale;
+  productName?: string;
+  /** Wood entry.id. Powers analytics via data-wa-product. */
+  productId?: string;
+  /** Free-text origin tag for analytics (e.g. "hero", "card", "footer"). */
+  location?: string;
+  /** Overrides the dictionary's default CTA label (primary/sticky only). */
+  label?: string;
+  /** Sticky variant only: render with the `hidden` attribute set so an
+   *  IntersectionObserver script can reveal it after the hero scrolls out. */
+  initiallyHidden?: boolean;
+  class?: string;
+}
+
+const {
+  variant,
+  locale,
+  productName,
+  productId,
+  location,
+  label,
+  initiallyHidden = false,
+  class: extraClass = '',
+} = Astro.props;
+
+const d = dict(locale);
+const url = buildWhatsAppUrl({
+  locale,
+  productName,
+  currentPath: Astro.url.pathname,
+});
+const text = label ?? d.whatsapp.inquireCta;
+---
+{variant === 'primary' && (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    data-wa-product={productId}
+    data-wa-location={location}
+    class:list={[
+      'inline-flex items-center justify-center gap-2 bg-wa-green text-white px-6 h-12 rounded-full font-medium transition-colors hover:bg-wa-green-dark',
+      extraClass,
+    ]}
+  >
+    <WhatsAppIcon class="w-5 h-5" />
+    <span>{text}</span>
+  </a>
+)}
+{variant === 'sticky' && (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    data-wa-product={productId}
+    data-wa-location={location ?? 'sticky'}
+    data-sticky-cta
+    aria-label={d.whatsapp.iconAriaLabel}
+    hidden={initiallyHidden}
+    class:list={[
+      'fixed start-4 end-4 bottom-20 z-40 md:hidden flex items-center justify-center gap-2 h-14 bg-wa-green text-white rounded-full font-medium',
+      extraClass,
+    ]}
+  >
+    <WhatsAppIcon class="w-5 h-5" />
+    <span>{text}</span>
+  </a>
+)}
+{variant === 'icon' && (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    data-wa-product={productId}
+    data-wa-location={location ?? 'header'}
+    aria-label={d.whatsapp.iconAriaLabel}
+    class:list={[
+      'inline-flex items-center justify-center w-11 h-11 rounded-full bg-wa-green text-white transition-colors hover:bg-wa-green-dark',
+      extraClass,
+    ]}
+  >
+    <WhatsAppIcon class="w-5 h-5" />
+  </a>
+)}

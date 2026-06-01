@@ -1,0 +1,35 @@
+---
+import { dict, formatNumber, pickName, type Locale } from '../../i18n/utils';
+import { siteConfig } from '../../config/site';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = dict(locale);
+const brand = pickName(siteConfig.brand, locale);
+const cr = formatNumber(siteConfig.commercialRegistration, locale);
+---
+<footer class="bg-cream-100 text-wood-800 mt-16 pb-24 md:pb-12">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 py-10 grid gap-8 md:grid-cols-3">
+    <div>
+      <p class="text-wood-900 font-medium text-lg">{brand}</p>
+      <p class="mt-2 text-sm text-wood-500 max-w-xs">{d.footer.tagline}</p>
+    </div>
+    <div>
+      <p class="section-label text-wood-500">{d.footer.citiesLabel}</p>
+      <ul class="mt-2 space-y-1 text-sm">
+        {d.footer.cities.map((city) => <li>{city}</li>)}
+      </ul>
+    </div>
+    <div>
+      <p class="section-label text-wood-500">{d.footer.crLabel}</p>
+      <p class="mt-2 text-sm font-mono">{cr}</p>
+    </div>
+  </div>
+  <div class="border-t border-cream-200">
+    <p class="max-w-7xl mx-auto px-4 md:px-6 py-4 text-xs text-wood-500">
+      {d.footer.copyright}
+    </p>
+  </div>
+</footer>
