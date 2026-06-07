@@ -1,0 +1,40 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+// Thin full-width photographic divider between sections. Optional caption is
+// overlaid on a flat tint (not a gradient) for legibility. Takes an imported
+// image (ImageMetadata) so astro:assets can emit AVIF + WebP.
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  /** Height utilities; override per placement. */
+  class?: string;
+}
+const { src, alt, caption, class: heightClass = 'h-40 md:h-56' } = Astro.props;
+
+// Cap responsive widths at the source width so astro:assets never upscales.
+const widths = [480, 768, 1024, 1536].filter((w) => w < src.width).concat(src.width);
+---
+<section class:list={['relative isolate overflow-hidden', heightClass]}>
+  <Picture
+    src={src}
+    formats={['avif', 'webp']}
+    fallbackFormat="webp"
+    alt={alt}
+    widths={widths}
+    sizes="100vw"
+    loading="lazy"
+    decoding="async"
+    class="absolute inset-0 -z-10 w-full h-full object-cover"
+  />
+  {caption && (
+    <Fragment>
+      <div class="absolute inset-0 -z-10 bg-wood-900/45" aria-hidden="true"></div>
+      <div class="relative h-full max-w-7xl mx-auto px-4 md:px-6 flex items-center">
+        <p class="text-cream-50 text-xl md:text-3xl max-w-2xl leading-tight">{caption}</p>
+      </div>
+    </Fragment>
+  )}
+</section>

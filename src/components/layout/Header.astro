@@ -44,8 +44,15 @@ const navItems = [
       </nav>
     </details>
 
-    <a href={localePath('/', locale)} class="font-medium text-wood-900 text-lg me-auto">
-      {brand}
+    <a href={localePath('/', locale)} class="me-auto inline-flex items-center" aria-label={brand}>
+      <img
+        src="/logo.webp"
+        alt={brand}
+        width="373"
+        height="320"
+        decoding="async"
+        class="h-11 md:h-14 w-auto"
+      />
     </a>
 
     <nav class="hidden md:flex items-center gap-1 me-auto">

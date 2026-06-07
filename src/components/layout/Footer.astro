@@ -1,5 +1,5 @@
 ---
-import { dict, formatNumber, pickName, type Locale } from '../../i18n/utils';
+import { dict, pickName, type Locale } from '../../i18n/utils';
 import { siteConfig } from '../../config/site';
 
 interface Props {
@@ -8,23 +8,34 @@ interface Props {
 const { locale } = Astro.props;
 const d = dict(locale);
 const brand = pickName(siteConfig.brand, locale);
-const cr = formatNumber(siteConfig.commercialRegistration, locale);
 ---
 <footer class="bg-cream-100 text-wood-800 mt-16 pb-24 md:pb-12">
-  <div class="max-w-7xl mx-auto px-4 md:px-6 py-10 grid gap-8 md:grid-cols-3">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 py-10 grid gap-8 md:grid-cols-2">
     <div>
-      <p class="text-wood-900 font-medium text-lg">{brand}</p>
-      <p class="mt-2 text-sm text-wood-500 max-w-xs">{d.footer.tagline}</p>
+      <img
+        src="/logo.webp"
+        alt={brand}
+        width="373"
+        height="320"
+        decoding="async"
+        class="h-16 w-auto"
+      />
+      <p class="mt-3 text-sm text-wood-500 max-w-xs">{d.footer.tagline}</p>
     </div>
     <div>
-      <p class="section-label text-wood-500">{d.footer.citiesLabel}</p>
+      <p class="section-label text-wood-500">{d.nav.contact}</p>
       <ul class="mt-2 space-y-1 text-sm">
-        {d.footer.cities.map((city) => <li>{city}</li>)}
+        <li>
+          <a href={`tel:+${siteConfig.phone}`} dir="ltr" class="transition-colors hover:text-wood-900">
+            {siteConfig.phoneDisplay}
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${siteConfig.email}`} dir="ltr" class="transition-colors hover:text-wood-900 break-all">
+            {siteConfig.email}
+          </a>
+        </li>
       </ul>
-    </div>
-    <div>
-      <p class="section-label text-wood-500">{d.footer.crLabel}</p>
-      <p class="mt-2 text-sm font-mono">{cr}</p>
     </div>
   </div>
   <div class="border-t border-cream-200">

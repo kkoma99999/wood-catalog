@@ -1,6 +1,8 @@
 ---
+import { Picture } from 'astro:assets';
 import { dict, localePath, type Locale } from '../../i18n/utils';
 import WhatsAppButton from '../WhatsAppButton.astro';
+import heroImg from '../../assets/store/okoume-yard-gabon.webp';
 
 interface Props {
   locale: Locale;
@@ -9,13 +11,32 @@ const { locale } = Astro.props;
 const d = dict(locale);
 const browseHref = localePath('/products', locale);
 ---
-<section class="bg-cream-50">
-  <div class="max-w-7xl mx-auto px-4 md:px-6 pt-8 md:pt-16 pb-12 md:pb-24">
-    <span class="inline-block bg-cream-100 text-wood-700 px-3 py-1 rounded-full section-label">
+<!-- Full-bleed photo hero. astro:assets emits AVIF + WebP with width/height set,
+     so there's no layout shift; legibility comes from a flat solid tint (not a
+     gradient, per CLAUDE.md). This photo is the LCP image, so it loads eager. -->
+<section class="relative isolate overflow-hidden bg-wood-900">
+  <Picture
+    src={heroImg}
+    formats={['avif', 'webp']}
+    fallbackFormat="webp"
+    alt={d.home.hero.imageAlt}
+    widths={[640, 1024]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+    class="absolute inset-0 -z-10 w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 -z-10 bg-wood-900/55" aria-hidden="true"></div>
+  <div class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-32">
+    <span class="inline-block bg-cream-50/95 text-wood-700 px-3 py-1 rounded-full section-label">
       {d.home.hero.pill}
     </span>
-    <p class="mt-5 text-2xl md:text-4xl text-wood-900 leading-tight max-w-3xl">
+    <h1 class="mt-5 text-2xl md:text-4xl text-cream-50 leading-tight max-w-3xl">
       {d.home.hero.subtitle}
+    </h1>
+    <p class="mt-4 text-base md:text-lg text-cream-50/85 max-w-2xl leading-relaxed">
+      {d.home.hero.lead}
     </p>
     <div class="mt-7 flex flex-wrap gap-3">
       <WhatsAppButton
@@ -26,7 +47,7 @@ const browseHref = localePath('/products', locale);
       />
       <a
         href={browseHref}
-        class="inline-flex items-center justify-center px-6 h-12 rounded-full border border-wood-700 text-wood-700 font-medium transition-colors hover:bg-wood-700 hover:text-cream-50"
+        class="inline-flex items-center justify-center px-6 h-12 rounded-full border border-cream-50 text-cream-50 font-medium transition-colors hover:bg-cream-50 hover:text-wood-900"
       >
         {d.home.hero.browseCta}
       </a>

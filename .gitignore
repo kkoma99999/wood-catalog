@@ -22,3 +22,15 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# staging / asset drops (consumed into the app; not deployed)
+catalog-final (1)/
+wood-catalog-assets/
+
+# unused store photos — the used ones live in src/assets/ (built to /_astro/).
+# keeps license-risk -STOCK/-WIKIMEDIA images out of the public deploy.
+public/store/
+
+# stray QA/check scripts left by tooling
+check_i18n.js
+final_i18n_check.js

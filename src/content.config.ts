@@ -16,9 +16,7 @@ const applications = [
 ] as const;
 
 const woods = defineCollection({
-  // beech (زان) is excluded from the catalog; deletion is blocked in this
-  // environment, so the entry is dropped at the loader rather than per-query.
-  loader: glob({ pattern: ['**/*.mdx', '!**/beech.mdx'], base: './src/content/woods' }),
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/woods' }),
   schema: z.object({
     nameAr: z.string().min(1),
     nameEn: z.string().min(1),
@@ -28,11 +26,11 @@ const woods = defineCollection({
     woodType: z.enum(woodTypes).optional(),
     colorFamily: z.enum(colorFamilies),
     hexColor: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
-    grades: z.array(z.string().min(1)).min(1),
+    grades: z.array(z.string().min(1)).min(1).optional(),
     applications: z.array(z.enum(applications)).min(1),
     certifications: z.array(z.string().min(1)).default([]),
-    moqBoardFeet: z.number().int().positive(),
-    leadTimeDays: z.number().int().positive(),
+    moqBoardFeet: z.number().int().positive().optional(),
+    leadTimeDays: z.number().int().positive().optional(),
     inStock: z.boolean(),
     images: z
       .object({
