@@ -14,7 +14,6 @@
   },
   "footer": {
     "tagline": "Hardwood suppliers to contractors and joinery shops worldwide.",
-    "crLabel": "Commercial Registration",
     "copyright": "© 2026 Neem Woods. All rights reserved."
   },
   "whatsapp": {
@@ -29,7 +28,6 @@
     "byOrder": "By order"
   },
   "home": {
-    "hello": "Hello",
     "hero": {
       "pill": "Hardwood suppliers worldwide",
       "subtitle": "Specialist suppliers of all types and sizes of wood.",
@@ -109,10 +107,6 @@
       "metaDescription": "{species} — premium hardwoods supplied worldwide. Browse specs and inquire on WhatsApp."
     },
     "detail": {
-      "specsTitle": "Specifications",
-      "atGlanceLabel": "At a glance",
-      "moistureLabel": "Moisture",
-      "moistureValue": "8–12%",
       "usesTitle": "Common uses",
       "similarTitle": "Similar species",
       "productCta": {
@@ -120,24 +114,6 @@
         "title": "Get a quote for your build",
         "subtitle": "Send dimensions and quantities — we'll respond same day."
       },
-      "jankaLabel": "Janka hardness",
-      "densityLabel": "Density",
-      "thicknessLabel": "Thickness",
-      "widthLabel": "Width",
-      "lengthLabel": "Length",
-      "gradesLabel": "Grades",
-      "applicationsLabel": "Applications",
-      "certificationsLabel": "Certifications",
-      "colorFamilyLabel": "Color family",
-      "moqLabel": "Minimum order",
-      "leadTimeLabel": "Lead time",
-      "stockLabel": "Availability",
-      "unitMm": "mm",
-      "unitLbf": "lbf",
-      "unitKgM3": "kg/m³",
-      "unitDays": "days",
-      "unitBoardFeet": "board feet",
-      "certificationsNone": "—",
       "applications": {
         "furniture": "Furniture",
         "flooring": "Flooring",
@@ -147,16 +123,7 @@
         "decorative": "Decorative",
         "doors": "Doors",
         "stairs": "Stairs"
-      },
-      "colorFamilies": {
-        "light": "Light",
-        "golden": "Golden",
-        "reddish": "Reddish",
-        "dark": "Dark",
-        "exotic": "Exotic"
-      },
-      "woodTypeLabel": "Type",
-      "woodTypes": { "hardwood": "Hardwood", "softwood": "Softwood" }
+      }
     }
   }
 }

@@ -13,7 +13,6 @@ export const siteConfig = {
   // Production domain placeholder — used to build absolute links inside
   // the WhatsApp pre-filled message so the merchant sees the source page.
   domain: 'https://woodcatalog.sa',
-  commercialRegistration: '0000000000',
   social: {} as Record<string, string>,
 } as const;
 
