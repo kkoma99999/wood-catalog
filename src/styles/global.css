@@ -1,7 +1,45 @@
 @import "tailwindcss";
 
-/* Fonts are loaded via <link> tags in BaseLayout.astro for faster preconnect
-   and to keep CSS lean (no extra blocking @import round-trip). */
+/* English UI font (Inter) is loaded via <link> in BaseLayout.astro.
+   The Arabic UI font (Thmanyah Sans) is self-hosted below: the license forbids
+   CDN hosting/redistribution, so the original unmodified woff2 files are served
+   same-origin from /public/fonts/. Browsers lazy-load each @font-face, so only
+   the weights actually rendered (400 body, 500 headings) are downloaded. */
+@font-face {
+  font-family: 'Thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyah-sans-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyah-sans-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyah-sans-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyah-sans-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyah-sans-black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
   --color-cream-50: #FAF6EE;
@@ -18,7 +56,7 @@
   --color-wa-green-dark: #128C7E;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-arabic: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  --font-arabic: 'Thmanyah Sans', 'IBM Plex Sans Arabic', Tahoma, sans-serif;
 
   --tracking-section: 0.08em;
 }

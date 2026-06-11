@@ -198,7 +198,7 @@ Semantic pills:
 
 ## Typography
 - English UI font: Inter (Google Fonts) with system sans-serif fallback
-- Arabic UI font: IBM Plex Sans Arabic (Google Fonts) with Tahoma fallback
+- Arabic UI font: Thmanyah Sans (self-hosted woff2 in /public/fonts/thmanyah/, declared via @font-face in global.css) with IBM Plex Sans Arabic / Tahoma fallback. License (Thmanyah-Font-Family/LICENSE.pdf) forbids CDN hosting/modifying the files — keep them same-origin and unmodified (no subsetting)
 - Load fonts with `display: swap`
 - Headings: weight 500 (never 700 — too heavy for wood-trade aesthetic)
 - Body: weight 400, line-height 1.6 for English, 1.75 for Arabic

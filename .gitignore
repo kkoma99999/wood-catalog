@@ -26,6 +26,10 @@ pnpm-debug.log*
 # staging / asset drops (consumed into the app; not deployed)
 catalog-final (1)/
 wood-catalog-assets/
+# raw Thmanyah font download — only the woff2 the site serves are copied into
+# public/fonts/thmanyah/. License forbids redistribution, so keep the full
+# family (OTFs, license PDF, __MACOSX cruft) out of the git remote.
+Thmanyah-Font-Family/
 
 # unused store photos — the used ones live in src/assets/ (built to /_astro/).
 # keeps license-risk -STOCK/-WIKIMEDIA images out of the public deploy.
