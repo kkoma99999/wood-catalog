@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://woodcatalog.sa',
+  site: 'https://www.neem-woods.com',
   integrations: [
     mdx(),
     sitemap({

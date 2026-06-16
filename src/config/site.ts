@@ -10,9 +10,9 @@ export const siteConfig = {
   phoneDisplay: '+966 56 078 8410',
   email: 'neem926671@gmail.com',
   whatsappBase: 'https://wa.me/',
-  // Production domain placeholder — used to build absolute links inside
+  // Production domain — used to build absolute links inside
   // the WhatsApp pre-filled message so the merchant sees the source page.
-  domain: 'https://woodcatalog.sa',
+  domain: 'https://www.neem-woods.com',
   social: {} as Record<string, string>,
 } as const;
 
