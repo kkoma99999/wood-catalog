@@ -9,6 +9,8 @@ interface Props {
   variant: Variant;
   locale: Locale;
   productName?: string;
+  /** Supplier SKU; included in the pre-filled message when present. */
+  productCode?: string;
   /** Wood entry.id. Powers analytics via data-wa-product. */
   productId?: string;
   /** Free-text origin tag for analytics (e.g. "hero", "card", "footer"). */
@@ -25,6 +27,7 @@ const {
   variant,
   locale,
   productName,
+  productCode,
   productId,
   location,
   label,
@@ -36,6 +39,7 @@ const d = dict(locale);
 const url = buildWhatsAppUrl({
   locale,
   productName,
+  productCode,
   currentPath: Astro.url.pathname,
 });
 const text = label ?? d.whatsapp.inquireCta;

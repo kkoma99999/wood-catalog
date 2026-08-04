@@ -5,9 +5,10 @@ import WhatsAppButton from '../WhatsAppButton.astro';
 interface Props {
   locale: Locale;
   productName: string;
+  productCode?: string;
   productId: string;
 }
-const { locale, productName, productId } = Astro.props;
+const { locale, productName, productCode, productId } = Astro.props;
 const d = dict(locale);
 const cta = d.products.detail.productCta;
 ---
@@ -21,6 +22,7 @@ const cta = d.products.detail.productCta;
         variant="primary"
         locale={locale}
         productName={productName}
+        productCode={productCode}
         productId={productId}
         location="detail-dark-cta"
       />

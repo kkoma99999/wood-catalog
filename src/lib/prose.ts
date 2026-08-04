@@ -72,7 +72,9 @@ export function renderProse(md: string): string {
     }
 
     flushList();
-    out.push(`<p class="leading-relaxed">${escapeHtml(line)}</p>`);
+    // Preflight zeroes paragraph margins, so space consecutive paragraphs here
+    // (species bodies are lead + "Common Uses" prose, with no heading between).
+    out.push(`<p class="leading-relaxed mt-4 first:mt-0">${escapeHtml(line)}</p>`);
   }
 
   flushList();

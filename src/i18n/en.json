@@ -14,13 +14,15 @@
   },
   "footer": {
     "tagline": "Hardwood suppliers to contractors and joinery shops worldwide.",
-    "copyright": "© 2026 Neem Woods. All rights reserved."
+    "copyright": "© 2026 Neem Woods. All rights reserved.",
+    "commercialRegistration": "Commercial Registration No."
   },
   "whatsapp": {
     "inquireCta": "Inquire on WhatsApp",
     "iconAriaLabel": "Contact us on WhatsApp",
     "stickyCta": "Inquire on WhatsApp",
     "productMessage": "Hi, I'd like to inquire about:\n*{name}*\nPage: {url}\n",
+    "productMessageWithCode": "Hi, I'd like to inquire about:\n*{name}*\nCode: {code}\nPage: {url}\n",
     "generalMessage": "Hi, I'd like to inquire about your wood products."
   },
   "wood": {
@@ -58,7 +60,7 @@
     }
   },
   "about": {
-    "metaDescription": "Neem Woods — specialist suppliers of sawn African tropical hardwoods from the forests of Gabon. 11 species online, 27 on the way. Inquire on WhatsApp.",
+    "metaDescription": "Neem Woods — specialist suppliers of sawn African tropical hardwoods from the forests of Gabon. 13 species online, 27 on the way. Inquire on WhatsApp.",
     "heading": "Who We Are",
     "heroLead": "Specialist suppliers of African tropical hardwoods — from the forests of Gabon to projects worldwide.",
     "intro": "Neem Woods is a specialist supplier of sawn African tropical hardwoods, operating from the heart of the forests of the Republic of Gabon — one of the richest and most diverse tropical forest environments on Earth.",
@@ -66,12 +68,12 @@
     "quote": "Fine hardwood isn't just a building material — it's an investment that lasts decades.",
     "stats": [
       { "value": "25+", "label": "years in the timber trade" },
-      { "value": "11", "label": "species available now" },
+      { "value": "13", "label": "species available now" },
       { "value": "27", "label": "species in the expanded catalog" }
     ],
     "distinctionTitle": "What Sets Us Apart",
     "distinctionBody1": "We make it our job to build real awareness of African wood species, their properties, and where each one performs best — because an informed buyer makes the right call.",
-    "distinctionBody2": "Right now we list 11 of Gabon's finest woods on our site, each with full specs so engineers, designers, and contractors anywhere in the world can choose with confidence.",
+    "distinctionBody2": "Right now we list 13 of Gabon's finest woods on our site, each with full specs so engineers, designers, and contractors anywhere in the world can choose with confidence.",
     "visionTitle": "Where We're Headed",
     "visionBody": "Our catalog doesn't stop here. An expanded 27-species catalog is on the way, including exceptionally rare species that are hard to find outside the forests of Gabon. Our goal is for Neem Woods to become the first name in African tropical hardwoods — knowledge, product, and expertise in one place.",
     "tagline": "Neem Woods — from the forests of Gabon to your projects.",
@@ -107,7 +109,8 @@
       "metaDescription": "{species} — premium hardwoods supplied worldwide. Browse specs and inquire on WhatsApp."
     },
     "detail": {
-      "usesTitle": "Common uses",
+      "scientificNameLabel": "Scientific name",
+      "codeLabel": "Code",
       "similarTitle": "Similar species",
       "productCta": {
         "label": "Need this for your project?",

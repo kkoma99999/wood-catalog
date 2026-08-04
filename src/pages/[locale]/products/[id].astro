@@ -65,17 +65,45 @@ const seoDescription = leadSentence ? `${name} — ${leadSentence}` : name;
         ></div>
       )}
       <div>
-        <span class:list={['inline-block text-xs px-2 py-0.5 rounded-full', pillClass]}>
-          {pillLabel}
-        </span>
+        {/* Stock state and supplier SKU share the top line: both are reference
+            data, and keeping the code here leaves the scientific name below as
+            the hero of the block. */}
+        <div class="flex flex-wrap items-center gap-2">
+          <span class:list={['inline-block text-xs px-2 py-0.5 rounded-full', pillClass]}>
+            {pillLabel}
+          </span>
+          {data.code && (
+            <span class="inline-flex items-center gap-1.5 text-xs px-2 py-0.5 rounded-full border border-cream-200 text-wood-500">
+              <span>{d.products.detail.codeLabel}</span>
+              <bdi dir="ltr" class="text-wood-800 tabular-nums tracking-wide">{data.code}</bdi>
+            </span>
+          )}
+        </div>
         <h1 class="mt-3 text-3xl md:text-5xl text-wood-900 leading-tight">{name}</h1>
-        <p class="mt-2 text-wood-500 italic" dir="ltr">{data.scientificName}</p>
+
+        {/* The botanical name is a primary buying signal for this trade, so it
+            gets a label and display-size type rather than a muted caption. The
+            <bdi> keeps the Latin binomial in LTR order without forcing the
+            whole block to left-align on Arabic pages. */}
+        <div class="mt-5 border-s-4 border-wood-700 ps-4">
+          <p class="section-label text-wood-500">{d.products.detail.scientificNameLabel}</p>
+          <p class="mt-1 text-xl md:text-3xl italic text-wood-700 leading-snug">
+            <bdi dir="ltr">{data.scientificName}</bdi>
+          </p>
+        </div>
+
+        {/* Application chips sit in the hero for at-a-glance scanning; the
+            species' own "Common Uses" paragraph carries the detail below. */}
+        <div class="mt-6">
+          <UsesBadges wood={wood} locale={locale} />
+        </div>
 
         <div class="mt-7">
           <WhatsAppButton
             variant="primary"
             locale={locale}
             productName={name}
+            productCode={data.code}
             productId={wood.id}
             location="detail-hero"
           />
@@ -86,14 +114,14 @@ const seoDescription = leadSentence ? `${name} — ${leadSentence}` : name;
     <section class="mt-10 md:mt-14 max-w-3xl text-wood-800">
       {proseHtml ? <div set:html={proseHtml} /> : Content && <Content />}
     </section>
-
-    <section class="mt-10 md:mt-14">
-      <h2 class="text-xl md:text-2xl text-wood-900 mb-4">{d.products.detail.usesTitle}</h2>
-      <UsesBadges wood={wood} locale={locale} />
-    </section>
   </article>
 
-  <ProductCtaSection locale={locale} productName={name} productId={wood.id} />
+  <ProductCtaSection
+    locale={locale}
+    productName={name}
+    productCode={data.code}
+    productId={wood.id}
+  />
 
   <SimilarSpecies current={wood} locale={locale} />
 
@@ -101,6 +129,7 @@ const seoDescription = leadSentence ? `${name} — ${leadSentence}` : name;
     variant="sticky"
     locale={locale}
     productName={name}
+    productCode={data.code}
     productId={wood.id}
     label={d.whatsapp.stickyCta}
     location="detail-sticky"

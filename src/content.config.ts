@@ -20,6 +20,12 @@ const woods = defineCollection({
   schema: z.object({
     nameAr: z.string().min(1),
     nameEn: z.string().min(1),
+    // Supplier SKU, e.g. NW-SPL-926. Optional: species predating the code
+    // system (wenge) have none, and the page/message omit it cleanly.
+    code: z
+      .string()
+      .regex(/^NW-[A-Z]{3}-\d{3,4}$/, 'Expected the NW-XXX-000 supplier code format')
+      .optional(),
     scientificName: z.string().min(1),
     commercialNamesEn: z.array(z.string().min(1)).default([]),
     commercialNamesAr: z.array(z.string().min(1)).default([]),

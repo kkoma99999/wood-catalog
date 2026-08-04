@@ -47,7 +47,12 @@ const hero = heroImage(data.images);
           {pillLabel}
         </span>
       </div>
-      <p class="text-xs italic text-wood-500" dir="ltr">{subtitle}</p>
+      <p class="text-sm italic text-wood-700"><bdi dir="ltr">{subtitle}</bdi></p>
+      {data.code && (
+        <p class="text-xs text-wood-500 tabular-nums tracking-wide">
+          <bdi dir="ltr">{data.code}</bdi>
+        </p>
+      )}
     </div>
   </div>
 </a>

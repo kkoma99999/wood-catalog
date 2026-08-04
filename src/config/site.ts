@@ -9,6 +9,10 @@ export const siteConfig = {
   // Human-readable form shown on the contact page (kept ASCII for dialing).
   phoneDisplay: '+966 56 078 8410',
   email: 'neem926671@gmail.com',
+  // Unified national number from the شهادة السجل التجاري — under the current
+  // register law this doubles as the commercial registration number. Kept in
+  // ASCII on both locales: it is an identifier buyers copy and verify.
+  commercialRegistration: '7043472203',
   whatsappBase: 'https://wa.me/',
   // Production domain — used to build absolute links inside
   // the WhatsApp pre-filled message so the merchant sees the source page.

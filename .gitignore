@@ -38,3 +38,9 @@ public/store/
 # stray QA/check scripts left by tooling
 check_i18n.js
 final_i18n_check.js
+
+# pasted business documents (CR certificate scans etc). The registration
+# number itself is public and lives in src/config/site.ts; the certificate
+# image and its QR code must not reach the remote.
+image.png
+*.certificate.*
