@@ -44,3 +44,7 @@ final_i18n_check.js
 # image and its QR code must not reach the remote.
 image.png
 *.certificate.*
+
+# raw photo drops from WhatsApp — the processed .webp served by the site are
+# committed under public/woods/; the originals stay local.
+WhatsApp Image *
