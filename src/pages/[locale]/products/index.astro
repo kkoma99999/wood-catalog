@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import WoodCard from '../../../components/product/WoodCard.astro';
 import { dict, formatList, pickName, type Locale } from '../../../i18n/utils';
+import headerImg from '../../../assets/store/warehouse-sawn-stacks.webp';
 
 export function getStaticPaths() {
   return [
@@ -28,17 +30,33 @@ const metaDescription = d.products.list.metaDescription.replace('{species}', spe
   title={d.products.list.metaTitle}
   description={metaDescription}
 >
-  <section class="bg-cream-50">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 pt-8 md:pt-14">
-      <p class="section-label text-wood-500">{d.products.list.label}</p>
-      <h1 class="mt-2 text-3xl md:text-5xl text-wood-900 leading-tight max-w-3xl">
+  <!-- Photo header, same treatment as the home and about heroes: full-bleed
+       image under a flat wood-900 tint (no gradient, per CLAUDE.md). It is the
+       LCP image on this page, so it loads eager. -->
+  <section class="relative isolate overflow-hidden bg-wood-900">
+    <Picture
+      src={headerImg}
+      formats={['avif', 'webp']}
+      fallbackFormat="webp"
+      alt={d.products.list.imageAlt}
+      widths={[640, 960]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="absolute inset-0 -z-10 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 -z-10 bg-wood-900/60" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
+      <p class="section-label text-cream-50/70">{d.products.list.label}</p>
+      <h1 class="mt-2 text-3xl md:text-5xl text-cream-50 leading-tight max-w-3xl">
         {d.products.list.title}
       </h1>
-      <p class="mt-4 text-wood-800 max-w-2xl">{d.products.list.subtitle}</p>
+      <p class="mt-4 text-cream-50/85 max-w-2xl leading-relaxed">{d.products.list.subtitle}</p>
     </div>
   </section>
   <section class="bg-cream-50">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 pt-8 pb-12 md:pb-20 grid gap-4 md:grid-cols-3">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-14 pb-12 md:pb-20 grid gap-4 md:grid-cols-3">
       {woods.map((wood) => <WoodCard wood={wood} locale={locale} />)}
     </div>
   </section>

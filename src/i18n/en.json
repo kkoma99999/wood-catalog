@@ -87,6 +87,7 @@
     "metaDescription": "Contact Neem Woods — message us on WhatsApp, call, or email for African hardwood inquiries and quotes.",
     "heading": "Get in touch",
     "subtitle": "Prices and quotes go through a quick chat. Reach us whichever way suits you — WhatsApp is fastest.",
+    "imageAlt": "Close-up of rich brown hardwood showing deep, wavy grain figure",
     "whatsappLabel": "WhatsApp",
     "whatsappHint": "Fastest reply. Send dimensions, quantities, or a reference photo.",
     "phoneLabel": "Phone",
@@ -105,6 +106,7 @@
       "label": "Catalog",
       "title": "Multiple hardwood species",
       "subtitle": "Every species we supply, with full technical specs and direct WhatsApp inquiry. No prices online — message us and we'll quote for your project.",
+      "imageAlt": "Bundles of sawn hardwood boards stacked on pallets inside a timber warehouse",
       "metaTitle": "Hardwood Species Catalog",
       "metaDescription": "{species} — premium hardwoods supplied worldwide. Browse specs and inquire on WhatsApp."
     },

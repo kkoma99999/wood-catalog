@@ -1,9 +1,11 @@
 ---
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import WhatsAppIcon from '../../components/icons/WhatsAppIcon.astro';
 import { dict, type Locale } from '../../i18n/utils';
 import { siteConfig } from '../../config/site';
+import headerImg from '../../assets/store/wood-grain-macro.webp';
 
 export function getStaticPaths() {
   return [
@@ -23,16 +25,31 @@ const cardClass = 'bg-cream-100 rounded-2xl p-6 flex flex-col gap-3';
 const linkCardClass = `${cardClass} border border-transparent transition-colors hover:border-wood-500`;
 ---
 <BaseLayout locale={locale} title={c.heading} description={c.metaDescription}>
-  <section class="bg-cream-50">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 pt-8 md:pt-14">
-      <p class="section-label text-wood-500">{d.nav.contact}</p>
-      <h1 class="mt-2 text-3xl md:text-5xl text-wood-900 leading-tight max-w-3xl">{c.heading}</h1>
-      <p class="mt-4 text-wood-800 max-w-2xl">{c.subtitle}</p>
+  <!-- Grain macro behind the page title, under the same flat tint the other
+       heroes use. Abstract texture keeps the focus on the contact cards below. -->
+  <section class="relative isolate overflow-hidden bg-wood-900">
+    <Picture
+      src={headerImg}
+      formats={['avif', 'webp']}
+      fallbackFormat="webp"
+      alt={c.imageAlt}
+      widths={[640, 720]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="absolute inset-0 -z-10 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 -z-10 bg-wood-900/65" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
+      <p class="section-label text-cream-50/70">{d.nav.contact}</p>
+      <h1 class="mt-2 text-3xl md:text-5xl text-cream-50 leading-tight max-w-3xl">{c.heading}</h1>
+      <p class="mt-4 text-cream-50/85 max-w-2xl leading-relaxed">{c.subtitle}</p>
     </div>
   </section>
 
   <section class="bg-cream-50">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 pt-8 pb-12 md:pb-20 grid gap-4 md:grid-cols-3">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-14 pb-12 md:pb-20 grid gap-4 md:grid-cols-3">
       <!-- WhatsApp — the primary channel -->
       <div class={cardClass}>
         <div class="flex items-center gap-2 text-wood-700">
